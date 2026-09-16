@@ -1,0 +1,421 @@
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pour Selena Hottier ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Georgia, serif;
+    background:
+        radial-gradient(circle at top, #542c62, #160b25 55%, #08040d);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* ÉTOILES */
+
+.etoile {
+    position: fixed;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    animation: scintiller 2s infinite alternate;
+}
+
+@keyframes scintiller {
+    from { opacity: 0.2; transform: scale(0.7); }
+    to { opacity: 1; transform: scale(1.5); }
+}
+
+/* ÉCRAN D'ACCUEIL */
+
+.intro {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #09040f;
+    transition: 1.5s;
+}
+
+.intro.contenu-cache {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.intro h1 {
+    font-size: clamp(40px, 8vw, 85px);
+    margin: 0;
+    background: linear-gradient(90deg, #fff, #ff9fcf, #fff);
+    background-size: 200%;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: brillant 3s infinite;
+}
+
+@keyframes brillant {
+    0% { background-position: 0%; }
+    50% { background-position: 100%; }
+    100% { background-position: 0%; }
+}
+
+.intro p {
+    font-size: 20px;
+    color: #ddd;
+}
+
+.bouton {
+    margin-top: 25px;
+    padding: 16px 35px;
+    border: 1px solid #ff9bc9;
+    border-radius: 50px;
+    background: rgba(255,255,255,0.08);
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.bouton:hover {
+    transform: scale(1.1);
+    background: rgba(255,155,201,0.2);
+    box-shadow: 0 0 30px #ff75b5;
+}
+
+/* CONTENU */
+
+.conteneur {
+    width: 90%;
+    max-width: 850px;
+    margin: auto;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.coeur {
+    font-size: 90px;
+    filter: drop-shadow(0 0 25px #ff4f9a);
+    animation: battement 1.2s infinite;
+}
+
+@keyframes battement {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.18); }
+}
+
+h2 {
+    font-size: clamp(35px, 7vw, 65px);
+    margin: 20px 0;
+}
+
+.soustitre {
+    color: #ffb8d9;
+    font-size: 20px;
+}
+
+/* CARTE */
+
+.carte {
+    margin-top: 60px;
+    padding: 45px;
+    border-radius: 30px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 50px rgba(255,80,160,0.15);
+}
+
+.lettre {
+    font-size: 21px;
+    line-height: 2;
+    text-align: left;
+    min-height: 250px;
+}
+
+.signature {
+    margin-top: 35px;
+    text-align: right;
+    font-size: 25px;
+    color: #ffb6d8;
+}
+
+/* BOUTON SURPRISE */
+
+.surprise {
+    margin-top: 50px;
+}
+
+.message-secret {
+    display: none;
+    margin-top: 30px;
+    padding: 25px;
+    border-radius: 20px;
+    background: rgba(255,100,170,0.12);
+    border: 1px solid #ff8fc4;
+    font-size: 22px;
+    animation: apparition 1s;
+}
+
+@keyframes apparition {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* COEURS FLOTTANTS */
+
+.coeur-flottant {
+    position: fixed;
+    bottom: -50px;
+    pointer-events: none;
+    animation: monter linear forwards;
+    z-index: 5;
+}
+
+@keyframes monter {
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* PETIT TEXTE FINAL */
+
+.final {
+    margin-top: 100px;
+    padding-bottom: 50px;
+    color: #aaa;
+    font-size: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ÉCRAN D'ACCUEIL -->
+
+<div class="intro" id="intro">
+    <div>
+        <h1>Selena ❤️</h1>
+        <p>J'ai créé quelque chose spécialement pour toi...</p>
+
+        <button class="bouton" onclick="ouvrir()">
+            Ouvrir mon message ✨
+        </button>
+    </div>
+</div>
+
+
+<!-- CONTENU PRINCIPAL -->
+
+<div class="conteneur">
+
+    <div class="coeur">❤️</div>
+
+    <h2>Pour Selena Hottier</h2>
+
+    <div class="soustitre">
+        Une petite page créée rien que pour toi.
+    </div>
+
+    <div class="carte">
+
+        <div class="lettre" id="lettre"></div>
+
+        <div class="signature">
+            ❤️ Pour Selena
+        </div>
+
+    </div>
+
+
+    <div class="surprise">
+
+        <button class="bouton" onclick="surprise()">
+            ✨ Découvrir un petit secret ✨
+        </button>
+
+        <div class="message-secret" id="secret">
+            Selena, peu importe ce que tu ressens,
+            je voulais simplement avoir le courage de
+            te dire que tu comptes beaucoup pour moi. ❤️
+            <br><br>
+            J'espère au moins avoir réussi à te faire sourire. 😊
+        </div>
+
+    </div>
+
+    <div class="final">
+        Fait avec beaucoup de sincérité ❤️
+    </div>
+
+</div>
+
+
+<script>
+
+/* CRÉATION DES ÉTOILES */
+
+for (let i = 0; i < 120; i++) {
+
+    const etoile = document.createElement("div");
+
+    etoile.className = "etoile";
+
+    etoile.style.left = Math.random() * 100 + "vw";
+    etoile.style.top = Math.random() * 100 + "vh";
+
+    etoile.style.animationDelay =
+        Math.random() * 2 + "s";
+
+    document.body.appendChild(etoile);
+}
+
+
+/* OUVERTURE */
+
+function ouvrir() {
+
+    document.getElementById("intro")
+        .classList.add("contenu-cache");
+
+    setTimeout(ecrireLettre, 900);
+}
+
+
+/* TEXTE QUI S'ÉCRIT */
+
+const texte = `
+Selena,
+
+Je ne savais pas vraiment comment te dire
+ce que je ressens...
+
+Alors j'ai décidé de créer cette petite page
+juste pour toi.
+
+Tu es devenue une personne importante pour moi.
+J'aime nos conversations, les moments où on rigole,
+et simplement le fait de pouvoir passer du temps
+avec toi.
+
+Je voulais être honnête avec toi :
+
+Tu me plais énormément. ❤️
+
+Je ne sais pas ce que tu ressens de ton côté,
+et je respecterai totalement ta réponse.
+
+Je voulais simplement que tu saches
+ce que j'avais dans le cœur.
+
+Et si cette page arrive à te faire sourire,
+alors elle aura déjà servi à quelque chose.
+
+❤️
+`;
+
+
+function ecrireLettre() {
+
+    const element = document.getElementById("lettre");
+
+    let i = 0;
+
+    function afficher() {
+
+        if (i < texte.length) {
+
+            element.innerHTML +=
+                texte.charAt(i)
+                .replace(/\n/g, "<br>");
+
+            i++;
+
+            setTimeout(afficher, 35);
+        }
+    }
+
+    afficher();
+}
+
+
+/* BOUTON SECRET */
+
+function surprise() {
+
+    const secret =
+        document.getElementById("secret");
+
+    secret.style.display = "block";
+
+    for (let i = 0; i < 30; i++) {
+        creerCoeur();
+    }
+}
+
+
+/* COEURS FLOTTANTS */
+
+function creerCoeur() {
+
+    const coeur =
+        document.createElement("div");
+
+    coeur.className = "coeur-flottant";
+
+    const emojis = ["❤️", "💖", "💕", "💗", "✨"];
+
+    coeur.innerHTML =
+        emojis[Math.floor(Math.random() * emojis.length)];
+
+    coeur.style.left =
+        Math.random() * 100 + "vw";
+
+    coeur.style.fontSize =
+        (15 + Math.random() * 35) + "px";
+
+    coeur.style.animationDuration =
+        (4 + Math.random() * 5) + "s";
+
+    document.body.appendChild(coeur);
+
+    setTimeout(() => {
+        coeur.remove();
+    }, 9000);
+}
+
+
+/* COEURS AUTOMATIQUES */
+
+setInterval(creerCoeur, 700);
+
+</script>
+
+</body>
+</html>
+```
